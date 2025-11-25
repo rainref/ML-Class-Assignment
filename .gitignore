@@ -2,7 +2,10 @@
 __pycache__/
 *.py[codz]
 *$py.class
+exp01/TestSet
+exp01/TrainingSet
 
+.idea
 # C extensions
 *.so
 
