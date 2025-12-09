@@ -51,3 +51,45 @@ transform = transforms.Compose([
   <img src="exp01/results/confusion_matrix.png" width="50%" alt="分类混淆矩阵"/>
 </div>
 
+## 实验二
+
+需要修改 **`forward` 函数** 中的 **池化层（Pooling layer）** 代码。
+
+### 修改方案
+
+将 `forward` 函数中的这一行：
+
+```python
+out = F.avg_pool2d(features, 7, stride=1).view(features.size(0), -1)
+```
+
+**修改为：**
+
+```python
+out = F.adaptive_avg_pool2d(features, (1, 1)).view(features.size(0), -1)
+```
+
+---
+
+### 为什么要修改这里？
+
+1. **原代码的逻辑：**
+   * 原始 DenseNet 设计针对的是 ImageNet 数据集，标准输入是 **224x224**。
+   * 经过 5 次下采样（conv0 和 4 个 DenseBlock 后的 transition/pooling），特征图大小缩小了 32 倍（$2^5$）。
+   * $224 / 32 = 7$。因此，原始代码使用了固定大小为 **7** 的卷积核 (`kernel_size=7`) 进行平均池化，正好将 $7\times7$
+     的特征图变成 $1\times1$，然后展平输入全连接层。
+
+2. **输入改为 600x600 后的问题：**
+   * 当输入变为 **600x600** 时，经过 32 倍下采样，最后的特征图大小约为 **18x18** ($600 / 32 = 18.75$)。
+   * 如果你继续使用 `F.avg_pool2d(features, 7, stride=1)`，它会在 $18\times18$ 的图上用 $7\times7$ 的窗口滑窗，导致输出的特征图不再是
+     $1\times1$，而是约 $12\times12$。
+   * 这会导致后续的 `view(features.size(0), -1)` 展平后的向量维度变大，从而与 `self.classifier` 定义的输入维度不匹配，报错
+     **RuntimeError: mat1 and mat2 shapes cannot be multiplied**。
+
+### 解法：`F.adaptive_avg_pool2d`
+
+使用 **自适应平均池化（Adaptive Average Pooling）** 是通用的解决方案。
+
+* `F.adaptive_avg_pool2d(features, (1, 1))` 的意思是：“不管输入的特征图尺寸（H x W）是多少，请帮我自动计算步长和核大小，最终输出
+  **1x1** 的特征图”。
+* 这样无论你以后将图片改为 600x600、512x512 还是其他尺寸，这行代码都不需要再修改。

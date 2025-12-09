@@ -1,10 +1,13 @@
-from model import resnet50
 import os
+
 import torch
+
+from exp02.model import densenet121
+
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz/bin/'
 
 # 模型网络结构可视化
-net = resnet50()
+net = densenet121()
 print(net)
 
 # 1. 使用torchsummary中的summary查看模型的输入输出形状、顺序结构，网络参数量，网络模型大小等信息

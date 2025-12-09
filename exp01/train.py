@@ -1,13 +1,13 @@
-from model import resnet50
-import torch
 import os
-import torch
-from PIL import Image
-import torchvision.transforms as transforms
-from torch.utils.data import Dataset, DataLoader
-import numpy as np
+
 import matplotlib.pyplot as plt
-import seaborn as sns
+import numpy as np
+import torch
+import torchvision.transforms as transforms
+from PIL import Image
+from torch.utils.data import Dataset, DataLoader
+
+from model import resnet50
 
 
 # 读取TrainingSet中的数据集

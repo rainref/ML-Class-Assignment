@@ -4,6 +4,8 @@ __pycache__/
 *$py.class
 exp01/TestSet
 exp01/TrainingSet
+exp02/2-MedImage-TestSet
+exp02/2-MedImage-TrainSet
 
 .idea
 # C extensions
