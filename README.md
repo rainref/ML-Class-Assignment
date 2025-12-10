@@ -58,7 +58,7 @@ transform = transforms.Compose([
 
 ## 实验二
 
-[![DenseNet Paper](https://img.shields.io/badge/arXiv-ResNet-b31b1b.svg)](https://arxiv.org/abs/1608.06993)
+[![DenseNet Paper](https://img.shields.io/badge/arXiv-DenseNet-b31b1b.svg)](https://arxiv.org/abs/1608.06993)
 
 ### 实验内容
 
