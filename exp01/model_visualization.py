@@ -2,7 +2,7 @@ import os
 
 import torch
 
-from exp02.model import densenet121
+from exp02.densenet import densenet121
 
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz/bin/'
 

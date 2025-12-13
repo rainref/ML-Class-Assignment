@@ -1,12 +1,11 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
 import torch
-from model import resnet50
-from train import load_mnist_bmp_dataset
+from sklearn.metrics import confusion_matrix
 from sklearn.metrics import recall_score, f1_score
 
-from sklearn.metrics import confusion_matrix
-import seaborn as sns
-import matplotlib.pyplot as plt
-
+from resnet import resnet50
+from train import load_mnist_bmp_dataset
 
 
 # 评估模型在测试集上的精确率、召回率、F1分数

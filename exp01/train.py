@@ -7,7 +7,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 
-from model import resnet50
+from resnet import resnet50
 
 
 # 读取TrainingSet中的数据集

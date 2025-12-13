@@ -5,8 +5,8 @@ import torchvision.transforms as transforms
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 
+from densenet import densenet121
 from draw_roc import draw_roc_pr_curves, plot_loss_curve
-from model import densenet121
 
 
 class MedicalImageDataset(Dataset):
