@@ -44,12 +44,12 @@ transform = transforms.Compose([
 - 损失函数曲线：
 
 <div align="center">
-  <img src="exp01/results/training_loss_curve.png" width="45%" />
-  <img src="exp01/results/training_batch_loss_curve.png" width="45%" />
+  <img src="results/training_loss_curve.png" width="45%" />
+  <img src="results/training_batch_loss_curve.png" width="45%" />
 </div>
 
 - 分类混淆矩阵
 
 <div align="center">
-  <img src="exp01/results/confusion_matrix.png" width="50%" alt="分类混淆矩阵"/>
+  <img src="results/confusion_matrix.png" width="50%" alt="分类混淆矩阵"/>
 </div>
