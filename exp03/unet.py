@@ -101,7 +101,7 @@ class UNet(nn.Module):
     def __init__(self, in_channels: int, out_channels: int):
         """
         :param in_channels: number of channels in the input image
-        :param out_channels: number of channels in the result feature map
+        :param out_channels: number of channels in the results feature map
         """
         super().__init__()
 
