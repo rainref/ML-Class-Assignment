@@ -6,6 +6,11 @@ exp01/TestSet
 exp01/TrainingSet
 exp02/2-MedImage-TestSet
 exp02/2-MedImage-TrainSet
+exp03/result/Results_Resnet
+exp03/result/Results_Saliency
+exp03/3-Saliency-TestSet
+exp03/3-Saliency-TrainSet
+exp03/exp03_reference_code/resnet18_saliency_best.pth
 
 .idea
 # C extensions
