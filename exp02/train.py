@@ -140,12 +140,9 @@ def train_model(num_epochs, batch_size, learning_rate, checkpoint_path='./densen
     if os.path.exists(checkpoint_path):
         print(f"检测到权重文件: {checkpoint_path}")
         print("正在加载权重并恢复训练状态...")
-
         checkpoint = torch.load(checkpoint_path, map_location=device)
-
         # 加载模型权重
         net.load_state_dict(checkpoint)
-
 
 
     else:

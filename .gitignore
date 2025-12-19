@@ -11,7 +11,9 @@ exp03/results/Results_Saliency
 exp03/3-Saliency-TestSet
 exp03/3-Saliency-TrainSet
 exp03/exp03_reference_code/resnet18_saliency_best.pth
-
+exp01/Digraph.gv
+exp01/Digraph.gv.pdf
+exp04/CIFARdata
 .idea
 # C extensions
 *.so
